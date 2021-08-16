@@ -13,7 +13,7 @@ app.get('/',(req,res)=>{
 
     res.json([
         {
-            route:"/signup",
+            route:"/projects/auth-api/signup",
             itsUse:"to create new users",
             requestType:"POST",
             body:{ name:"name", password:"password", email:"email" },
@@ -25,7 +25,7 @@ app.get('/',(req,res)=>{
             }
         },
         {
-            route:"/login",
+            route:"/projects/auth-api/login",
             itsUse:"to login",
             requestType:"POST",
             body:{ password:"password", email:"email" },
@@ -37,7 +37,7 @@ app.get('/',(req,res)=>{
             }
         },
         {
-            route:"/home",
+            route:"/projects/auth-api/home",
             itsUse:"to login",
             requestType:"GET",
             header:{"x-access-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbmlrZGhhbmphbDJAZ21haWwuY29tIiwibmFtZSI6IkRoYW5qYWwiLCJpYXQiOjE2MjkxNTE4NTd9.WNlgm0JCZaZ_eW9bNCyTkR7lavjlQXP7xiqaPpZ0RHA"},
