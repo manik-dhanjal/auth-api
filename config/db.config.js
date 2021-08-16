@@ -4,7 +4,11 @@ dotenv.config();
 
 
 const connectDB = async() => {
-    const MONGO_DB = process.env.MONGO_DB||'mongodb://localhost:27017/auth-api';
+
+    const MONGO_DB = process.env.NODE_ENV==="production"?
+                        process.env.MONGO_DB
+                        :'mongodb://localhost:27017/auth-api';
+    
     try{
         const conn =  await mongoose.connect(MONGO_DB,{
                 useUnifiedTopology: true,
