@@ -10,7 +10,40 @@ connectDB();
 app.use(express.json());
 
 app.get('/',(req,res)=>{
-    res.send("hello world")
+
+    res.json([
+        {
+            route:"/signup",
+            itsUse:"to create new users",
+            requestType:"POST",
+            body:{ name:"name", password:"password", email:"email" },
+            response:{
+                "name": "Dhanjal",
+                "email": "manikdhanjal2@gmail.com",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjExYWUxNGZiOWE3OGE1OTA4MGIwMjIxIiwiZW1haWwiOiJtYW5pa2RoYW5qYWwyQGdtYWlsLmNvbSIsIm5hbWUiOiJEaGFuamFsIiwiaWF0IjoxNjI5MTUxNTY3fQ.pVgv0CBYTRXdhuFLOMNjhs1vLoj9WYQ1coMS7cPg0xg",
+                "message": "user is successfully signed up"
+            }
+        },
+        {
+            route:"/login",
+            itsUse:"to login",
+            requestType:"POST",
+            body:{ password:"password", email:"email" },
+            response:{
+                "name": "Dhanjal",
+                "email": "manikdhanjal2@gmail.com",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbmlrZGhhbmphbDJAZ21haWwuY29tIiwibmFtZSI6IkRoYW5qYWwiLCJpYXQiOjE2MjkxNTE4NTd9.WNlgm0JCZaZ_eW9bNCyTkR7lavjlQXP7xiqaPpZ0RHA",
+                "message": "user successfully logged in"
+            }
+        },
+        {
+            route:"/home",
+            itsUse:"to login",
+            requestType:"GET",
+            header:{"x-access-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbmlrZGhhbmphbDJAZ21haWwuY29tIiwibmFtZSI6IkRoYW5qYWwiLCJpYXQiOjE2MjkxNTE4NTd9.WNlgm0JCZaZ_eW9bNCyTkR7lavjlQXP7xiqaPpZ0RHA"},
+            response:"welcome home Dhanjal _/\\_"
+        },
+    ])
 })
 
 app.get('/home',authentication,(req,res)=>{
